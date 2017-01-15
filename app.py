@@ -52,8 +52,14 @@ def collect(url, key, act):
             error = "Video does not have captions"
             #Return to start
             return render_template('index.html', error = error)
-        
+            
         video_path = getVideo(url) 
+        
+        local_keyword = open(path + "\\temp_caption\\keyword.txt", 'w')
+        local_keyword.write(key);
+        local_keyword.close();
+        
+        os(path+"\\VideoEdit\\VideoEdit.pde");
         return captions
     
     #If not a youtube link

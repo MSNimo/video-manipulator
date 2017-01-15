@@ -22,15 +22,27 @@ int timer = 0;
 //int input_num_size;
 
 public String [][] values;
-public float ADD_FAC = 0.5; //interval for speed change
+public float ADD_FAC = 1; //interval for speed change
 static int num_stamps;
 public double[] output;
-public double[] real_output = new double[num_stamps];
+public double[] real_output;
 
 void setup() {
   size(640, 360); //set to video resolution
   frameRate(30); 
-  myMovie = new Movie(this, "Drake - Hotline Bling.3gp"); //file name from data folder
+ 
+String pathe = "C:\\Users\\mikeb\\Documents\\Github\\video-manipulator\\VideoEdit\\data\\"; 
+String name = "";
+File folder = new File(pathe);
+File[] listOfFiles = folder.listFiles();
+
+    for (int i = 0; i < listOfFiles.length; i++) {
+      if (listOfFiles[i].isFile()) {
+        name = listOfFiles[i].getName();
+      } 
+    }
+  
+  myMovie = new Movie(this, pathe + name); //file name from data folder
   myMovie.loop(); //loop video
   
   //code here
@@ -41,9 +53,10 @@ void setup() {
     catch (FileNotFoundException e) {
         throw new RuntimeException(e);
     }
-  
-  for (int b = 0; b<num_stamps; b++)
-  {real_output[b] = output[b];}
+   real_output = new double[num_stamps];
+  for (int b = 0; b<num_stamps; b++){
+  real_output[b] = output[b];
+}
   //timeConverter a = new timeConverter(test_nums, SPEED_FACTOR);
   //input_nums = a.convert_stamps(a.reformat_times(test_nums));
   
@@ -58,6 +71,7 @@ void draw() {
   image(myMovie, 0, 0);
   timer = millis()-start;
   text(timer, 20, 20);
+  text(Integer.toString((int)real_output[1]), 30, 30);
   //code here
 
   
@@ -141,7 +155,10 @@ public class hacks_testcode{
           }
           
           sc2.close();
-          double [] sol = find_posns("you");
+          File f2 = new File(path + "\\keyword.txt");
+          Scanner sc3 = new Scanner(f2);
+          String keyw = sc3.nextLine();
+          double [] sol = find_posns(keyw);
           double [] fin = convert_stamps(sol);
           return fin;
           
