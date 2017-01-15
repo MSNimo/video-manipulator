@@ -1,0 +1,28 @@
+body { 
+    background: fuchsia !important; 
+}
+
+.title{
+    margin-top: 2%;
+}
+
+.container {
+    text-align: center; margin-top: 5%;  
+}
+
+h1, button, input, select, option {
+    text-align: center; font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+label {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+div#loading {
+    display: none;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
