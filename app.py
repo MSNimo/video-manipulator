@@ -7,9 +7,11 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from flask import render_template
+import pafy
 import json
 import datetime
 import webbrowser
+
  
 app = Flask(__name__) 
 
@@ -28,7 +30,13 @@ def editor(url, key, act):
 
     website = 'youtube.com'
     if website in url:
-        return "placeholder"
+        video = pafy.new(url)
+        streams = video.streams
+        s_num = len(streams)
+        s_choice = s_num//2
+        video_file = streams[s_choice].download#(filepath = "")
+        return video_file
+        #return streams[s_choice]
     else:
         error = "youtube link not provided"
         return render_template('index.html', error = error)
