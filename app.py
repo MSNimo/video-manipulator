@@ -3,16 +3,14 @@
 # Returns: VIDEO, from URL, where ACTION is performed at every KEYWORD
 
 import os
-from glob import glob
 from flask import Flask
 from flask import request
 from flask import jsonify
 from flask import render_template
 from lxml import html
-import urllib
 import urllib2
 import requests
-import pafy
+import pafy  
 import json
 import datetime
 import webbrowser
@@ -56,7 +54,7 @@ def collect(url, key, act):
             #Return to start
             return render_template('index.html', error = error)
         
-        #video_path = getVideo(url) 
+        video_path = getVideo(url) 
         return captions
     
     #If not a youtube link
