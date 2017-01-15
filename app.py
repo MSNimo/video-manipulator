@@ -15,6 +15,7 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from flask import render_template
+import pafy
 import json
 import datetime
 import webbrowser
@@ -30,7 +31,7 @@ YOUTUBE_READ_WRITE_SSL_SCOPE = "https://www.googleapis.com/auth/youtube.force-ss
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-MISSING_CLIENT_SECRETS_MESSAGE = "blurp"
+MISSING_CLIENT_SECRETS_MESSAGE = "derp"
  
 app = Flask(__name__) 
 
@@ -77,7 +78,15 @@ def editor(url, key, act):
     if website in url:
         youtube = get_authenticated_service()
         print(youtube)
-        return download_caption(youtube,url.split("?",1)[1], "sbv")
+        captionlineone = download_caption(youtube,url.split("?",1)[1], "sbv")
+        
+        video = pafy.new(url)
+        streams = video.streams
+        s_num = len(streams)
+        s_choice = s_num//2
+        video_file = streams[s_choice].download#(filepath = "")
+        return video_file
+        #return streams[s_choice]
     else:
         error = "youtube link not provided"
         return render_template('index.html', error = error)
