@@ -50,7 +50,6 @@ def collect(url, key, act):
         #If Captions Do Not Exist
         if captions == "NULL":
             error = "Video does not have captions"
-            
             #Return to start
             return render_template('index.html', error = error)
         
