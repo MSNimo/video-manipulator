@@ -117,7 +117,7 @@ def getVideo(url):
     s_choice = s_num//2
     
     #Download video to temp folder
-    video_path = streams[s_choice].download(filepath = path + "\\temp_video")
+    video_path = streams[s_choice].download(filepath = path + "\\VideoEdit\\data")
     return video_path    
     
 #Run App
