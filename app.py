@@ -59,8 +59,7 @@ def collect(url, key, act):
         local_keyword.write(key);
         local_keyword.close();
         
-        os(path+"\\VideoEdit\\VideoEdit.pde");
-        return captions
+        return render_template('index.html')
     
     #If not a youtube link
     else:
@@ -124,7 +123,8 @@ def getVideo(url):
     
     #Download video to temp folder
     video_path = streams[s_choice].download(filepath = path + "\\VideoEdit\\data")
-    return video_path    
+    return video_path
+    #return s_choice    
     
 #Run App
 if __name__ == '__main__':
