@@ -11,25 +11,25 @@ Our project is awebsite takes in a video link and a keyword and returns a new vi
 
 HOW IT WORKS
 
-> HTML frontend receives youtube link, keyword, and specified action.
-> Flask server receives data upon form submission
-> Downloads video off youtube, automatically choosing an average stream
-> lxml scraper downloads captions off of website www.downsub.com (It's like a real shady site but the data is solid)
-> Captions are saved to text file
-> Program creates array data structure to organize times
-> Data structure is analyzed, and returns a 1D array of times
-> Processing analyzes the data, and creates the video modification
+> * HTML frontend receives youtube link, keyword, and specified action.
+> * Flask server receives data upon form submission
+> * Downloads video off youtube, automatically choosing an average stream
+> * lxml scraper downloads captions off of website www.downsub.com (It's like a real shady site but the data is solid)
+> * Captions are saved to text file
+> * Program creates array data structure to organize times
+> * Data structure is analyzed, and returns a 1D array of times
+> * Processing analyzes the data, and creates the video modification
 
 TO DO (Ranked by Priority)
 
-> Have the python app call the processing program automatically
-> Have the final result downloaded and stored in a folder, deleting intially downloaded video
-> Upload new video and display to client
-> Find a new scraping target, one that is more reliable
-> Debug: Scraper and Processing code
-> Better error catching
-> Host program on an online server
-> Cleaner frontend
+> * Have the python app call the processing program automatically
+> * Have the final result downloaded and stored in a folder, deleting intially downloaded video
+> * Upload new video and display to client
+> * Find a new scraping target, one that is more reliable
+> * Debug: Scraper and Processing code
+> * Better error catching
+> * Host program on an online server
+> * Cleaner frontend
 
 Created for Uncommon Hacks 2017 
 "Automating memes is perfect for the meme hackathon"
